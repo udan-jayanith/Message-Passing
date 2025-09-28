@@ -1,5 +1,6 @@
 message.request('service-worker-1').then((res) => {
 	console.log('response received from the service worker-1')
+	console.log(res)
 })
 
 message.request('service-worker-2').then((res) => {

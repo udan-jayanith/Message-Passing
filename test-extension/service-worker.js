@@ -1,10 +1,16 @@
 importScripts('../message.js')
 
-message.onRequest('service-worker-1', (body) => {
+message.onRequest('service-worker-1', (body, response) => {
 	console.log('service-worker-1')
+	setTimeout(() => {
+		response({
+			ok: true,
+		})
+	}, 1000)
+	return true
 })
 
-message.onRequest('service-worker-2', (body) => {
+message.onRequest('service-worker-2', (body, response) => {
 	console.log('service-worker-2')
 })
 

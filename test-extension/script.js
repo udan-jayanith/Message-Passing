@@ -1,0 +1,20 @@
+message.request('service-worker-1').then((res) => {
+	console.log('response received from the service worker-1')
+})
+
+message.request('service-worker-2').then((res) => {
+	console.log('response received from the service worker-2')
+})
+
+ConnectToSocket('socket', (conn) => {
+	conn.onReceive((obj) => {
+		console.assert(obj.msg != undefined)
+		if (obj.msg == 'hello') {
+			conn.send({
+				msg: 'welcome',
+			})
+		} else {
+			console.log(obj.msg)
+		}
+	})
+})

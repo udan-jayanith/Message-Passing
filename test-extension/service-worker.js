@@ -6,7 +6,7 @@ message.onRequest('service-worker-1', (body, response) => {
 		response({
 			ok: true,
 		})
-	}, 1000)
+	}, 8000)
 	return true
 })
 

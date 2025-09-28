@@ -1,4 +1,4 @@
-let msgSocket = {
+ let msgSocket = {
 	callbacks: new Map(),
 	onConnect: function (portName, callback) {
 		console.assert(typeof portName == 'string')

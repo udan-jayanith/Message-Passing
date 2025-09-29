@@ -66,17 +66,16 @@ Here when popup connected to `socket` socket port service worker sends a message
 Import `content-script-msg-socket.js` to connect to msgSockets in popup.
 
 ```js
-ConnectToSocket('socket', (conn) => {
-	conn.onReceive((obj) => {
-		console.assert(obj.msg != undefined)
-		if (obj.msg == 'hello') {
-			conn.send({
-				msg: 'welcome',
-			})
-		} else {
-			console.log(obj.msg)
-		}
-	})
+let conn = msgSocket.connect('socket')
+conn.onReceive((obj) => {
+	console.assert(obj.msg != undefined)
+	if (obj.msg == 'hello') {
+		conn.send({
+			msg: 'welcome',
+		})
+	} else {
+		console.log(obj.msg)
+	}
 })
 ```
 
